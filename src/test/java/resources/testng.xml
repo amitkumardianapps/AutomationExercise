@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test Suite" verbose="1">
+    <listeners>
+        <listener class-name="helpers.TestListener" />
+    </listeners>
+
+    <test name="Add To Cart Tests">
+        <classes>
+            <class name="tests.LoginTest" />
+            <class name="tests.AddToCartTest" />
+            <class name="tests.CartTest"/>
+        </classes>
+    </test>
+</suite>
