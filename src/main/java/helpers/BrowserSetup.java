@@ -10,6 +10,8 @@ public class BrowserSetup {
 
   public static void setup() {
     WebDriverManager.chromedriver().setup();
+  }
+  public static void navigateToURL(){
     driver.get("https://www.saucedemo.com/v1/");
     driver.manage().window().maximize();
   }

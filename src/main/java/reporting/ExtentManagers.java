@@ -1,11 +1,11 @@
-package helpers;
+package reporting;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import java.io.File;
 
-public class ExtentManager {
+public class ExtentManagers {
   private static ExtentReports extent;
   private static final String reportFileName = "Test-Automaton-Report" + ".html";
   private static final String fileSeparator = System.getProperty("file.separator");

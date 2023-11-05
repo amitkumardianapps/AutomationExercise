@@ -1,38 +1,40 @@
 package pageoperations;
 
-import static helpers.BrowserSetup.driver;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
-import static page.Cart.*;
-
+import constants.CheckoutConstants;
 import helpers.ScrollHelper;
-import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
+
+import static helpers.BrowserSetup.driver;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+import static pageobject.Cart.*;
+
 public class CartOperations {
 
   public static void clickCart() {
     ScrollHelper.scroll(0, -100);
-    WebElement cartButton = driver.findElement(cartButtonLocator);
-
-    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cartButton);
-    cartButton.click();
-  }
-
-  public static void verifyHeading() {
-    Assert.assertEquals(actualCartUrl, expectedCartUrl);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cartButtonWebElement);
+    cartButtonWebElement.click();
+    Assert.assertEquals(CheckoutConstants.actualCartUrl, CheckoutConstants.expectedCartUrl);
   }
 
   public static void clickCheckout() {
-    driver.findElement(checkoutLocator).click();
-    driver.findElement(firstNameLocator).sendKeys("firstName");
-    driver.findElement(lastNameLocator).sendKeys("lastName");
-    driver.findElement(zipCodeLocator).sendKeys("48343");
-    driver.findElement(continueButtonLocator).click();
+    checkOutButtonWebElement.click(); // TODO Pagefactory
+  }
 
+  public static void enterCheckoutInformation() {
+    firstNameInputWebElement.sendKeys("firstName"); // TODO remove hard coded values
+    lastNameInputWebElement.sendKeys("lastName");
+    zipCodeInputWebElement.sendKeys("48343");
+    continueButtonWebElement.click();
+  }
+
+  public static void verifyAddedItems(String[] itemsToAdd) {
     for (String verifyItem : itemsToAdd) {
       WebDriverWait wait =
           new WebDriverWait(driver, Duration.ofSeconds(10)); // Use Duration for wait time

@@ -1,21 +1,21 @@
 package pageoperations;
 
-import static helpers.BrowserSetup.driver;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
-import static page.Cart.itemsToAdd;
-
-import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
+import static helpers.BrowserSetup.driver;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+
 public class ProductsOperations {
 
-  public static void addToCart() {
+  public static void addToCart(String[] itemsToAdd) {
 
     for (String itemToAdd : itemsToAdd) {
       WebDriverWait wait =
-          new WebDriverWait(driver, Duration.ofSeconds(10)); // Use Duration for wait time
+          new WebDriverWait(driver, Duration.ofSeconds(20)); // Use Duration for wait time
       WebElement item =
           wait.until(
               visibilityOfElementLocated(

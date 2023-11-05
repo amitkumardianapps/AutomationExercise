@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Test Suite" verbose="1">
     <listeners>
-        <listener class-name="helpers.TestListener" />
+        <listener class-name="reporting.TestListener" />
     </listeners>
 
     <test name="Add To Cart Tests">
@@ -10,6 +10,7 @@
             <class name="tests.LoginTest" />
             <class name="tests.AddToCartTest" />
             <class name="tests.CartTest"/>
+
         </classes>
     </test>
 </suite>

@@ -1,30 +1,40 @@
 package tests;
 
-import static helpers.BrowserSetup.driver;
-
+import dataprovider.CartData;
 import dataprovider.LoginData;
 import helpers.BrowserSetup;
-import org.testng.annotations.AfterTest;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pageobject.Cart;
+import pageobject.Login;
 import pageoperations.LoginOperations;
 import pageoperations.ProductsOperations;
+
+import static helpers.BrowserSetup.driver;
 
 public class AddToCartTest {
 
   @BeforeClass
   public static void BrowserLaunch() {
-    BrowserSetup.setup();
+    BrowserSetup.navigateToURL();
   }
 
-  @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class)
-  public static void addItemToCart(String username, String password) {
+  @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class, priority = 1, groups = {"Login"})
+  public static void login(String username, String password) {
+    PageFactory.initElements(driver, Login.class);
     LoginOperations.login(username, password);
-    ProductsOperations.addToCart();
   }
 
-  @AfterTest
-  public static void afterTest() {
-    driver.quit();
+  @Test(dataProvider = "CartData", dataProviderClass = CartData.class, priority = 2, groups = {"Add Item To Cart"})
+  public static void addItemToCart(String itemToAdd) {
+    PageFactory.initElements(driver, Cart.class);
+    ProductsOperations.addToCart(new String[] {itemToAdd});
+  }
+
+  @AfterClass
+  public static void testCompletion() {
+    driver.get("https://www.saucedemo.com/v1/");
   }
 }
