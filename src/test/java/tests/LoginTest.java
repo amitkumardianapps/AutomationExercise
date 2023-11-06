@@ -13,13 +13,13 @@ import static helpers.BrowserSetup.driver;
 
 public class LoginTest {
 
-  @BeforeTest
+  @BeforeTest(groups={"sanity","regression"})
   public static void login() {
     BrowserSetup.setup();
     BrowserSetup.navigateToURL();
   }
 
-  @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class)
+  @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class, groups="sanity")
   public static void loginPage(String username, String password) {
     PageFactory.initElements(driver, Login.class);
     LoginOperations.login(username, password);
@@ -27,6 +27,6 @@ public class LoginTest {
 
   @AfterClass
   public static void testCompletion() {
-    driver.get("https://www.saucedemo.com/v1/");
+    BrowserSetup.navigateToURL();
   }
 }

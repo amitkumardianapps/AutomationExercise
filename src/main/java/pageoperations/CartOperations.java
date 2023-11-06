@@ -24,13 +24,13 @@ public class CartOperations {
   }
 
   public static void clickCheckout() {
-    checkOutButtonWebElement.click(); // TODO Pagefactory
+    checkOutButtonWebElement.click();
   }
 
-  public static void enterCheckoutInformation() {
-    firstNameInputWebElement.sendKeys("firstName"); // TODO remove hard coded values
-    lastNameInputWebElement.sendKeys("lastName");
-    zipCodeInputWebElement.sendKeys("48343");
+  public static void enterUserInformation(String firstName, String lastName, String zipCode) {
+    firstNameInputWebElement.sendKeys(firstName);
+    lastNameInputWebElement.sendKeys(lastName);
+    zipCodeInputWebElement.sendKeys(zipCode);
     continueButtonWebElement.click();
   }
 

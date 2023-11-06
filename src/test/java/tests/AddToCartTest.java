@@ -16,18 +16,18 @@ import static helpers.BrowserSetup.driver;
 
 public class AddToCartTest {
 
-  @BeforeClass
+  @BeforeClass(groups={"sanity","regression"})
   public static void BrowserLaunch() {
     BrowserSetup.navigateToURL();
   }
 
-  @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class, priority = 1, groups = {"Login"})
+  @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class, priority = 1, groups = {"sanity"})
   public static void login(String username, String password) {
     PageFactory.initElements(driver, Login.class);
     LoginOperations.login(username, password);
   }
 
-  @Test(dataProvider = "CartData", dataProviderClass = CartData.class, priority = 2, groups = {"Add Item To Cart"})
+  @Test(dataProvider = "CartData", dataProviderClass = CartData.class, priority = 2, groups = {"sanity"})
   public static void addItemToCart(String itemToAdd) {
     PageFactory.initElements(driver, Cart.class);
     ProductsOperations.addToCart(new String[] {itemToAdd});
@@ -35,6 +35,6 @@ public class AddToCartTest {
 
   @AfterClass
   public static void testCompletion() {
-    driver.get("https://www.saucedemo.com/v1/");
+    BrowserSetup.navigateToURL();
   }
 }
