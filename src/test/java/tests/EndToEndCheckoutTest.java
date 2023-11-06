@@ -42,11 +42,11 @@ public class EndToEndCheckoutTest {
     CartOperations.clickCheckout();
   }
 
-  @Test(dataProvider = "PersonalInformationData", priority = 3, dataProviderClass = PersonalInformationData.class, groups = "regression")
+  @Test(dataProvider = "PersonalInformationData", priority = 4, dataProviderClass = PersonalInformationData.class, groups = "regression")
   public static void enterPersonalInformation(String firstName,String lastName, String zipCode){
     CartOperations.enterUserInformation(firstName,lastName,zipCode);
   }
-  @Test(dataProvider = "CartData", dataProviderClass = CartData.class, priority = 4, groups = "regression")
+  @Test(dataProvider = "CartData", dataProviderClass = CartData.class, priority = 5, groups = "regression")
   public static void verifyCartItems(String itemToAdd) {
     CartOperations.verifyAddedItems(new String[] {itemToAdd});
   }
