@@ -1,5 +1,7 @@
 package tests;
 
+import static helpers.BrowserSetup.driver;
+
 import dataprovider.CartData;
 import dataprovider.LoginData;
 import dataprovider.PersonalInformationData;
@@ -14,22 +16,28 @@ import pageoperations.CartOperations;
 import pageoperations.LoginOperations;
 import pageoperations.ProductsOperations;
 
-import static helpers.BrowserSetup.driver;
-
 public class EndToEndCheckoutTest {
 
-  @BeforeClass(groups={"sanity","regression"})
+  @BeforeClass(groups = {"sanity", "regression"})
   public static void browserSetup() {
     BrowserSetup.navigateToURL();
   }
 
-  @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class, priority = 1, groups = "regression")
+  @Test(
+      dataProvider = "LoginCredentials",
+      dataProviderClass = LoginData.class,
+      priority = 1,
+      groups = "regression")
   public static void login(String username, String password) {
     PageFactory.initElements(driver, Login.class);
     LoginOperations.login(username, password);
   }
 
-  @Test(dataProvider = "CartData", dataProviderClass = CartData.class, priority = 2, groups = "regression")
+  @Test(
+      dataProvider = "CartData",
+      dataProviderClass = CartData.class,
+      priority = 2,
+      groups = "regression")
   public static void addItemToCart(String itemToAdd) {
     PageFactory.initElements(driver, Cart.class);
     ProductsOperations.addToCart(new String[] {itemToAdd});
@@ -42,11 +50,20 @@ public class EndToEndCheckoutTest {
     CartOperations.clickCheckout();
   }
 
-  @Test(dataProvider = "PersonalInformationData", priority = 4, dataProviderClass = PersonalInformationData.class, groups = "regression")
-  public static void enterPersonalInformation(String firstName,String lastName, String zipCode){
-    CartOperations.enterUserInformation(firstName,lastName,zipCode);
+  @Test(
+      dataProvider = "PersonalInformationData",
+      priority = 4,
+      dataProviderClass = PersonalInformationData.class,
+      groups = "regression")
+  public static void enterPersonalInformation(String firstName, String lastName, String zipCode) {
+    CartOperations.enterUserInformation(firstName, lastName, zipCode);
   }
-  @Test(dataProvider = "CartData", dataProviderClass = CartData.class, priority = 5, groups = "regression")
+
+  @Test(
+      dataProvider = "CartData",
+      dataProviderClass = CartData.class,
+      priority = 5,
+      groups = "regression")
   public static void verifyCartItems(String itemToAdd) {
     CartOperations.verifyAddedItems(new String[] {itemToAdd});
   }
