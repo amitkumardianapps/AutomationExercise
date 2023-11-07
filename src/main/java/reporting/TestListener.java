@@ -1,16 +1,20 @@
 package reporting;
 
-import static helpers.BrowserSetup.driver;
-
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import java.io.File;
-import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static helpers.BrowserSetup.driver;
 
 public class TestListener implements ITestListener {
 
@@ -39,18 +43,18 @@ public class TestListener implements ITestListener {
     System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
 
     if (result.getStatus() == ITestResult.FAILURE) {
-      ExtentTestManagers.getTest().log(Status.FAIL, "Test Failed");
-      TakesScreenshot ts = (TakesScreenshot) driver; // Ensure 'driver' is defined and accessible
+      ExtentTest test = ExtentTestManagers.getTest();
+      test.log(Status.FAIL, "Test Failed");
 
+      TakesScreenshot ts = (TakesScreenshot) driver;
       File screenshot = ts.getScreenshotAs(OutputType.FILE);
-      String screenshotPath =
-          "path/to/save/screenshot.png"; // Define the path where the screenshot will be saved
+
+      String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+      String screenshotPath = "screenshots/screenshot_" + timestamp + ".png"; // Relative path
 
       try {
-        // Copy the screenshot file to the specified path
         FileUtils.copyFile(screenshot, new File(screenshotPath));
-        // Add the copied file's path to the Extent Report
-        ExtentTestManagers.getTest().addScreenCaptureFromPath(screenshotPath);
+        test.addScreenCaptureFromPath(screenshotPath);
       } catch (IOException e) {
         e.printStackTrace();
       }

@@ -1,7 +1,5 @@
 package tests;
 
-import static helpers.BrowserSetup.driver;
-
 import dataprovider.CartData;
 import dataprovider.LoginData;
 import helpers.BrowserSetup;
@@ -13,6 +11,9 @@ import pageobject.Cart;
 import pageobject.Login;
 import pageoperations.LoginOperations;
 import pageoperations.ProductsOperations;
+import reporting.ExtentManagers;
+
+import static helpers.BrowserSetup.driver;
 
 public class AddToCartTest {
 
@@ -39,6 +40,7 @@ public class AddToCartTest {
   public static void addItemToCart(String itemToAdd) {
     PageFactory.initElements(driver, Cart.class);
     ProductsOperations.addToCart(new String[] {itemToAdd});
+    ExtentManagers.log("Added " + itemToAdd + " to the cart");
   }
 
   @AfterClass

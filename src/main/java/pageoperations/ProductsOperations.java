@@ -15,7 +15,8 @@ public class ProductsOperations {
 
     for (String itemToAdd : itemsToAdd) {
       WebDriverWait wait =
-          new WebDriverWait(driver, Duration.ofSeconds(20)); // Use Duration for wait time
+          new WebDriverWait(driver, Duration.ofSeconds(20));
+  System.out.println("wait initiallised");
       WebElement item =
           wait.until(
               visibilityOfElementLocated(
@@ -23,12 +24,13 @@ public class ProductsOperations {
                       "//div[@class='inventory_item_label']//a//div[contains(text(), '"
                           + itemToAdd
                           + "')]")));
+      System.out.println("waited for the item");
       WebElement addToCartButton =
           item.findElement(
               By.xpath(
                   "./ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']"));
+      System.out.println("found the element");
       addToCartButton.click();
-      System.out.println("Added " + itemToAdd + " to the cart.");
     }
   }
 }

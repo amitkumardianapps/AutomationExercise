@@ -1,17 +1,19 @@
 package pageoperations;
 
-import static helpers.BrowserSetup.driver;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
-import static pageobject.Cart.*;
-
 import constants.CheckoutConstants;
 import helpers.ScrollHelper;
-import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import reporting.ExtentManagers;
+
+import java.time.Duration;
+
+import static helpers.BrowserSetup.driver;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+import static pageobject.Cart.*;
 
 public class CartOperations {
 
