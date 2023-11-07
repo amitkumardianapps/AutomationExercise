@@ -1,14 +1,18 @@
 package reporting;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+
 import java.io.File;
 
 public class ExtentManagers {
   private static ExtentReports extent;
   private static final String reportFileName = "Test-Automaton-Report" + ".html";
   private static final String fileSeparator = System.getProperty("file.separator");
+  private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
   private static final String reportFilepath =
       System.getProperty("user.dir") + fileSeparator + "TestReport";
   private static final String reportFileLocation = reportFilepath + fileSeparator + reportFileName;
@@ -19,7 +23,7 @@ public class ExtentManagers {
   }
 
   // Create an extent report instance
-  public static ExtentReports createInstance() {
+  public static void createInstance() {
     String fileName = getReportPath(reportFilepath);
 
     ExtentSparkReporter htmlReporter = new ExtentSparkReporter(fileName);
@@ -36,7 +40,6 @@ public class ExtentManagers {
     extent.setSystemInfo("OS", "MacOS");
     extent.setSystemInfo("AUT", "QA");
 
-    return extent;
   }
 
   // Create the report path
@@ -54,5 +57,17 @@ public class ExtentManagers {
       System.out.println("Directory already exists: " + path);
     }
     return reportFileLocation;
+  }
+  public static void log(String logDetails) {
+    ExtentReports extent = getInstance();
+    ExtentTest test = extentTest.get();
+
+    if (test == null) {
+      test = extent.createTest("Generic Test");
+      extentTest.set(test);
+    }
+
+    test.log(Status.INFO, logDetails);
+    extent.flush();
   }
 }
