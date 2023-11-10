@@ -32,6 +32,7 @@ build/
 !**/src/test/**/build/
 /.idea
 .idea/workspace.xml
+screenshots
 
 ### VS Code ###
 .vscode/

@@ -1,5 +1,7 @@
 package tests;
 
+import static helpers.BrowserSetup.driver;
+
 import dataprovider.CartData;
 import dataprovider.LoginData;
 import helpers.BrowserSetup;
@@ -12,8 +14,6 @@ import pageobject.Login;
 import pageoperations.LoginOperations;
 import pageoperations.ProductsOperations;
 import reporting.ExtentManagers;
-
-import static helpers.BrowserSetup.driver;
 
 public class AddToCartTest {
 

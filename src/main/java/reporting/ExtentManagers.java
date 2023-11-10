@@ -1,14 +1,13 @@
 package reporting;
 
+import static reporting.ExtentTestManagers.test;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-
 import java.io.File;
-
-import static reporting.ExtentTestManagers.test;
 
 public class ExtentManagers {
   private static ExtentReports extent;
@@ -41,7 +40,6 @@ public class ExtentManagers {
     // Set environment details
     extent.setSystemInfo("OS", "MacOS");
     extent.setSystemInfo("AUT", "QA");
-
   }
 
   // Create the report path
@@ -60,8 +58,8 @@ public class ExtentManagers {
     }
     return reportFileLocation;
   }
-  public static void log(String logDetails) {
 
+  public static void log(String logDetails) {
 
     if (test == null) {
       test = extent.createTest("Generic Test");

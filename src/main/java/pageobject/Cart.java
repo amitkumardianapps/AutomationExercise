@@ -22,4 +22,10 @@ public class Cart {
 
   @FindBy(xpath = "//input[@type='submit']")
   public static WebElement continueButtonWebElement;
+
+
+    @FindBy(xpath = "//div[@class='inventory_item_label']//a//div[contains(text(), '"+ itemToAdd+ "')]")
+    public static WebElement item;
+
+
 }

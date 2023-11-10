@@ -1,5 +1,8 @@
 package pageoperations;
 
+import static helpers.BrowserSetup.driver;
+import static pageobject.Cart.*;
+
 import constants.CheckoutConstants;
 import helpers.ScrollHelper;
 import org.openqa.selenium.By;
@@ -7,9 +10,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import utilities.WaitUtility;
-
-import static helpers.BrowserSetup.driver;
-import static pageobject.Cart.*;
 
 public class CartOperations {
   static WaitUtility waitUtil = new WaitUtility(driver);
@@ -35,8 +35,9 @@ public class CartOperations {
 
   public static void verifyAddedItems(String[] itemsToAdd) {
     for (String verifyItem : itemsToAdd) {
-     WebElement ele=driver.findElement(By.xpath("//div[contains(text(), '" + verifyItem + "')]"));
-     WaitUtility.waitForElementVisibility(ele);
+      WebElement ele =
+          driver.findElement(By.xpath("//div[contains(text(), '" + verifyItem + "')]"));
+      WaitUtility.waitForElementVisibility(ele);
       String itemText = ele.getText();
       Assert.assertEquals(itemText, verifyItem);
     }

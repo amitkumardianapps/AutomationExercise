@@ -42,7 +42,7 @@ public class EndToEndCheckoutTest {
       groups = "regression")
   public static void addItemToCart(String itemToAdd) {
     PageFactory.initElements(driver, Cart.class);
-    ProductsOperations.addToCart(new String[] {itemToAdd});
+    ProductsOperations.addToCart(new String[] {itemToAdd});     //TODO the item is coming as pre-selected in the cart that is why the cart cannot be found need to fix this
     ExtentManagers.log("Added " + itemToAdd + " to the cart");
   }
 
@@ -79,8 +79,9 @@ public class EndToEndCheckoutTest {
   public static void testCompletion() {
     BrowserSetup.navigateToURL();
   }
+
   @AfterSuite
-  public static void suiteCompletion(){
+  public static void suiteCompletion() {
     driver.quit();
   }
 }
