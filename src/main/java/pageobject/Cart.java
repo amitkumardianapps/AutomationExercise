@@ -30,5 +30,8 @@ public class Cart {
     @FindBy(xpath = "//div[contains(text(), 'Sauce Labs Backapck')]/ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']")
     public static WebElement addToCartButtonWebElement;
 
+    @FindBy(xpath = "//div[contains(text(), 'Sauce Labs Backapck')]/ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']")
+    WebElement addToCart;
+
 
 }

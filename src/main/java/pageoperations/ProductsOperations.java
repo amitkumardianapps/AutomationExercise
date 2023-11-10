@@ -12,7 +12,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 public class ProductsOperations {
 
   public static void addToCart(String[] itemsToAdd) {
-
+    
     for (String itemToAdd : itemsToAdd) {
       WebDriverWait wait =
           new WebDriverWait(driver, Duration.ofSeconds(20));
