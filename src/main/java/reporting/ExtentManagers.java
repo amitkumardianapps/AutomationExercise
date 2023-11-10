@@ -8,6 +8,8 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import java.io.File;
 
+import static reporting.ExtentTestManagers.test;
+
 public class ExtentManagers {
   private static ExtentReports extent;
   private static final String reportFileName = "Test-Automaton-Report" + ".html";
@@ -59,8 +61,7 @@ public class ExtentManagers {
     return reportFileLocation;
   }
   public static void log(String logDetails) {
-    ExtentReports extent = getInstance();
-    ExtentTest test = extentTest.get();
+
 
     if (test == null) {
       test = extent.createTest("Generic Test");
