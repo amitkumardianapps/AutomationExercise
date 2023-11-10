@@ -14,8 +14,8 @@ public class ProductsOperations {
   public static void addToCart(String[] itemsToAdd) {
 
     for (String itemToAdd : itemsToAdd) {
-      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
+      WebDriverWait wait =
+          new WebDriverWait(driver, Duration.ofSeconds(20));
       WebElement item =
           wait.until(
               visibilityOfElementLocated(
@@ -26,9 +26,7 @@ public class ProductsOperations {
       WebElement addToCartButton =
           item.findElement(
               By.xpath(
-                  "//div[contains(text(), '"
-                      + itemToAdd
-                      + "')]/ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']"));
+                  "./ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']"));
       addToCartButton.click();
     }
   }

@@ -1,5 +1,6 @@
 package tests;
 
+import constants.ProjectConstants;
 import dataprovider.CartData;
 import dataprovider.LoginData;
 import dataprovider.PersonalInformationData;
@@ -9,7 +10,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageobject.Cart;
 import pageobject.Login;
 import pageoperations.CartOperations;
 import pageoperations.LoginOperations;
@@ -22,7 +22,8 @@ public class EndToEndCheckoutTest {
 
   @BeforeClass(groups = {"sanity", "regression"})
   public static void browserSetup() {
-    BrowserSetup.navigateToURL();
+    BrowserSetup.setupDriver();
+    BrowserSetup.navigateToURL(ProjectConstants.url);
   }
 
   @Test(
@@ -41,14 +42,12 @@ public class EndToEndCheckoutTest {
       priority = 2,
       groups = "regression")
   public static void addItemToCart(String itemToAdd) {
-    PageFactory.initElements(driver, Cart.class);
     ProductsOperations.addToCart(new String[] {itemToAdd});     //TODO the item is coming as pre-selected in the cart that is why the cart cannot be found need to fix this
     ExtentManagers.log("Added " + itemToAdd + " to the cart");
   }
 
   @Test(priority = 3, groups = "regression")
   public static void checkoutEndToEnd() {
-    PageFactory.initElements(driver, Cart.class);
     CartOperations.clickCart();
     ExtentManagers.log("Navigated to the cart page");
     CartOperations.clickCheckout();
@@ -77,7 +76,7 @@ public class EndToEndCheckoutTest {
 
   @AfterClass
   public static void testCompletion() {
-    BrowserSetup.navigateToURL();
+    BrowserSetup.navigateToURL(ProjectConstants.url);
   }
 
   @AfterSuite

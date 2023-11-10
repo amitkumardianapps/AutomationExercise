@@ -7,8 +7,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class BrowserSetup {
 
   public static WebDriver driver;
+  private BrowserSetup() {
+  }
 
-  public static void setup() {
+  public static WebDriver getDriverInstance() {
+    if (driver == null) {
+      setupDriver();
+    }
+    return driver;
+  }
+
+  public static void setupDriver() {
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--start-maximized");
     options.addArguments("--disable-application-cache");
@@ -18,9 +27,9 @@ public class BrowserSetup {
     driver = new ChromeDriver(options);
   }
 
-  public static void navigateToURL() {
-    driver.get("https://www.saucedemo.com/v1/");
-    driver.manage().deleteAllCookies();
-    driver.manage().window().maximize();
+  public static void navigateToURL(String url) {
+    getDriverInstance().get(url);
+    getDriverInstance().manage().deleteAllCookies();
+    getDriverInstance().manage().window().maximize();
   }
 }

@@ -6,9 +6,8 @@ public class LoginData {
 
   @DataProvider(name = "LoginCredentials")
   public Object[][] loginCreds() {
-    Object[][] Data = {
+      return new Object[][]{
       {"standard_user", "secret_sauce"},
     };
-    return Data;
   }
 }

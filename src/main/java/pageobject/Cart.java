@@ -24,8 +24,11 @@ public class Cart {
   public static WebElement continueButtonWebElement;
 
 
-    @FindBy(xpath = "//div[@class='inventory_item_label']//a//div[contains(text(), '"+ itemToAdd+ "')]")
-    public static WebElement item;
+    @FindBy(xpath = "//div[@class='inventory_item_label']//a//div[contains(text(), 'Sauce Labs Backpack')]")
+    public static WebElement itemWebElement;
+
+    @FindBy(xpath = "//div[contains(text(), 'Sauce Labs Backapck')]/ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']")
+    public static WebElement addToCartButtonWebElement;
 
 
 }
