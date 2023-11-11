@@ -7,8 +7,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class BrowserSetup {
 
   public static WebDriver driver;
-  private BrowserSetup() {
-  }
+
+  private BrowserSetup() {}
 
   public static WebDriver getDriverInstance() {
     if (driver == null) {

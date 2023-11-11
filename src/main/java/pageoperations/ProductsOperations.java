@@ -1,33 +1,21 @@
 package pageoperations;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-import static helpers.BrowserSetup.driver;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+import static pageobject.Cart.getAddToCartButton;
+import static pageobject.Cart.getProductByName;
 
 public class ProductsOperations {
 
   public static void addToCart(String[] itemsToAdd) {
-    
-    for (String itemToAdd : itemsToAdd) {
-      WebDriverWait wait =
-          new WebDriverWait(driver, Duration.ofSeconds(20));
-      WebElement item =
-          wait.until(
-              visibilityOfElementLocated(
-                  By.xpath(
-                      "//div[@class='inventory_item_label']//a//div[contains(text(), '"
-                          + itemToAdd
-                          + "')]")));
-      WebElement addToCartButton =
-          item.findElement(
-              By.xpath(
-                  "./ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']"));
-      addToCartButton.click();
-    }
+      for (String itemToAdd : itemsToAdd) {
+
+        // Get product element
+        WebElement item = getProductByName(itemToAdd);
+
+        // Get "Add to Cart" button and click
+        WebElement addToCartButton = getAddToCartButton(item);
+        addToCartButton.click();
+      }
   }
 }

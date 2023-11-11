@@ -1,10 +1,10 @@
 package pageoperations;
 
-import org.openqa.selenium.support.PageFactory;
-import pageobject.Login;
-
 import static helpers.BrowserSetup.driver;
 import static pageobject.Login.*;
+
+import org.openqa.selenium.support.PageFactory;
+import pageobject.Login;
 
 public class LoginOperations {
 

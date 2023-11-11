@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/Users/amitkumar/IdeaProjects/NewActivity/src/test/java/tests/EndToEndCheckoutTest.java"><classes><class name="tests.EndToEndCheckoutTest"><methods><include name="login"/><include name="addItemToCart"/><include name="checkoutEndToEnd"/><include name="enterPersonalInformation"/><include name="verifyCartItems"/></methods></class></classes></test></suite>

@@ -1,5 +1,8 @@
 package pageoperations;
 
+import static helpers.BrowserSetup.driver;
+import static pageobject.Cart.*;
+
 import constants.CheckoutConstants;
 import helpers.ScrollHelper;
 import org.openqa.selenium.By;
@@ -10,12 +13,8 @@ import org.testng.Assert;
 import pageobject.Cart;
 import utilities.WaitUtility;
 
-import static helpers.BrowserSetup.driver;
-import static pageobject.Cart.*;
-
 public class CartOperations {
   static WaitUtility waitUtil = new WaitUtility(driver);
-
 
   public static void clickCart() {
     PageFactory.initElements(driver, Cart.class);

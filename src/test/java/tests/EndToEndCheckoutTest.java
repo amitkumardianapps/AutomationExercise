@@ -1,5 +1,7 @@
 package tests;
 
+import static helpers.BrowserSetup.driver;
+
 import constants.ProjectConstants;
 import dataprovider.CartData;
 import dataprovider.LoginData;
@@ -15,8 +17,6 @@ import pageoperations.CartOperations;
 import pageoperations.LoginOperations;
 import pageoperations.ProductsOperations;
 import reporting.ExtentManagers;
-
-import static helpers.BrowserSetup.driver;
 
 public class EndToEndCheckoutTest {
 
@@ -42,7 +42,11 @@ public class EndToEndCheckoutTest {
       priority = 2,
       groups = "regression")
   public static void addItemToCart(String itemToAdd) {
-    ProductsOperations.addToCart(new String[] {itemToAdd});     //TODO the item is coming as pre-selected in the cart that is why the cart cannot be found need to fix this
+    ProductsOperations.addToCart(
+        new String[] {
+          itemToAdd
+        }); // TODO the item is coming as pre-selected in the cart that is why the cart cannot be
+    // found need to fix this
     ExtentManagers.log("Added " + itemToAdd + " to the cart");
   }
 
