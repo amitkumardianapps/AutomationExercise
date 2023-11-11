@@ -33,7 +33,7 @@ public class LoginTest {
       priority = 2)
   public static void failedLogin(String username, String password) {
     PageFactory.initElements(driver, Login.class);
-    LoginOperations.login(username , password);
+    LoginOperations.login(username, password);
   }
 
   @AfterTest

@@ -1,8 +1,8 @@
 package helpers;
 
-import static helpers.BrowserSetup.driver;
-
 import org.openqa.selenium.JavascriptExecutor;
+
+import static helpers.BrowserSetup.driver;
 
 public class ScrollHelper {
   public static void scroll(int xOffset, int yOffset) {

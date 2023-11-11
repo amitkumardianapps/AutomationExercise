@@ -1,7 +1,5 @@
 package tests;
 
-import static helpers.BrowserSetup.driver;
-
 import constants.ProjectConstants;
 import dataprovider.CartData;
 import dataprovider.LoginData;
@@ -17,6 +15,8 @@ import pageoperations.CartOperations;
 import pageoperations.LoginOperations;
 import pageoperations.ProductsOperations;
 import reporting.ExtentManagers;
+
+import static helpers.BrowserSetup.driver;
 
 public class EndToEndCheckoutTest {
 
@@ -81,6 +81,7 @@ public class EndToEndCheckoutTest {
   @AfterClass
   public static void testCompletion() {
     BrowserSetup.navigateToURL(ProjectConstants.url);
+    driver.quit();
   }
 
   @AfterSuite

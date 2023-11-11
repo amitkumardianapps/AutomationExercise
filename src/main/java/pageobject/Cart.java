@@ -38,16 +38,16 @@ public class Cart {
   public static WebElement getProductByName(String productName) {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     return wait.until(
-            ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath(
-                            "//div[@class='inventory_item_label']//a//div[contains(text(), '"
-                                    + productName
-                                    + "')]")));
+        ExpectedConditions.visibilityOfElementLocated(
+            By.xpath(
+                "//div[@class='inventory_item_label']//a//div[contains(text(), '"
+                    + productName
+                    + "')]")));
   }
 
   public static WebElement getAddToCartButton(WebElement productElement) {
     return productElement.findElement(
-            By.xpath(
-                    "./ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']"));
+        By.xpath(
+            "./ancestor::div[@class='inventory_item']//button[@class='btn_primary btn_inventory']"));
   }
 }
