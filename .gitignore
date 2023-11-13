@@ -33,6 +33,7 @@ build/
 /.idea
 .idea/workspace.xml
 screenshots
+TestReport
 
 ### VS Code ###
 .vscode/
