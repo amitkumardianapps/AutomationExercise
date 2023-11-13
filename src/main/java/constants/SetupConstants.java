@@ -1,6 +1,6 @@
 package constants;
 
-public class ProjectConstants {
+public class SetupConstants {
 
   public static final String url = "https://www.saucedemo.com/v1/";
 }

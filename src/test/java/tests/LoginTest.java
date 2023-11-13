@@ -1,6 +1,6 @@
 package tests;
 
-import constants.ProjectConstants;
+import constants.SetupConstants;
 import dataprovider.LoginData;
 import helpers.BrowserSetup;
 import org.openqa.selenium.support.PageFactory;
@@ -17,7 +17,7 @@ public class LoginTest {
   @BeforeTest(groups = {"sanity", "regression"})
   public static void login() {
     BrowserSetup.setupDriver();
-    BrowserSetup.navigateToURL(ProjectConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.url);
   }
 
   @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class, groups = "sanity")
@@ -38,6 +38,6 @@ public class LoginTest {
 
   @AfterTest
   public static void testCompletion() {
-    BrowserSetup.navigateToURL(ProjectConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.url);
   }
 }

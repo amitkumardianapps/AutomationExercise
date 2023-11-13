@@ -1,6 +1,6 @@
 package tests;
 
-import constants.ProjectConstants;
+import constants.SetupConstants;
 import dataprovider.CartData;
 import helpers.BrowserSetup;
 import org.openqa.selenium.support.PageFactory;
@@ -20,7 +20,7 @@ public class EndToEndCheckoutTest {
   @BeforeClass(groups = {"sanity", "regression"})
   public static void browserSetup() {
     BrowserSetup.setupDriver();
-    BrowserSetup.navigateToURL(ProjectConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.url);
   }
 
   @Test(

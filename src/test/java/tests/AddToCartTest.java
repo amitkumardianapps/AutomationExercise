@@ -1,6 +1,6 @@
 package tests;
 
-import constants.ProjectConstants;
+import constants.SetupConstants;
 import dataprovider.CartData;
 import helpers.BrowserSetup;
 import org.testng.annotations.AfterClass;
@@ -14,7 +14,7 @@ public class AddToCartTest {
 
   @BeforeClass(groups = {"sanity", "regression"})
   public static void BrowserLaunch() {
-    BrowserSetup.navigateToURL(ProjectConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.url);
   }
 
 
@@ -31,6 +31,6 @@ public class AddToCartTest {
 
   @AfterClass
   public static void testCompletion() {
-    BrowserSetup.navigateToURL(ProjectConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.url);
   }
 }
