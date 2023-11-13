@@ -20,7 +20,7 @@ public class EndToEndCheckoutTest {
   @BeforeClass(groups = {"sanity", "regression"})
   public static void browserSetup() {
     BrowserSetup.setupDriver();
-    BrowserSetup.navigateToURL(SetupConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.URL);
   }
 
   @Test(

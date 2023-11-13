@@ -17,7 +17,7 @@ public class LoginTest {
   @BeforeTest(groups = {"sanity", "regression"})
   public static void login() {
     BrowserSetup.setupDriver();
-    BrowserSetup.navigateToURL(SetupConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.URL);
   }
 
   @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class, groups = "sanity")
@@ -38,6 +38,6 @@ public class LoginTest {
 
   @AfterTest
   public static void testCompletion() {
-    BrowserSetup.navigateToURL(SetupConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.URL);
   }
 }

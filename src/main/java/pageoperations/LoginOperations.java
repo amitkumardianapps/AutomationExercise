@@ -10,8 +10,8 @@ public class LoginOperations {
 
   public static void login(String username, String Password) {
     PageFactory.initElements(driver, Login.class);
-    userNameWebElement.sendKeys(username);
-    passwordWebElement.sendKeys(Password);
-    loginButtonWebElement.click();
+    userName_Element.sendKeys(username);
+    password_Element.sendKeys(Password);
+    loginButton_Element.click();
   }
 }

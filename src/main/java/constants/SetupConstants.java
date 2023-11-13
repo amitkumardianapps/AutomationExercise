@@ -2,5 +2,5 @@ package constants;
 
 public class SetupConstants {
 
-  public static final String url = "https://www.saucedemo.com/v1/";
+  public static final String URL = "https://www.saucedemo.com/v1/";
 }

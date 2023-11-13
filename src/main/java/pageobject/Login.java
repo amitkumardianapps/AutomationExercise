@@ -7,11 +7,11 @@ import org.openqa.selenium.support.How;
 public class Login {
 
   @FindBy(how = How.ID, using = "user-name")
-  public static WebElement userNameWebElement;
+  public static WebElement userName_Element;
 
   @FindBy(how = How.ID, using = "password")
-  public static WebElement passwordWebElement;
+  public static WebElement password_Element;
 
   @FindBy(xpath = "//input[@id='login-button']")
-  public static WebElement loginButtonWebElement;
+  public static WebElement loginButton_Element;
 }

@@ -13,22 +13,22 @@ import static helpers.BrowserSetup.driver;
 public class Cart {
 
   @FindBy(xpath = "//div[@id='shopping_cart_container']//a[contains(@class, 'shopping_cart_link')]")
-  public static WebElement cartButtonWebElement;
+  public static WebElement cart_Button_Element;
 
   @FindBy(linkText = "CHECKOUT")
-  public static WebElement checkOutButtonWebElement;
+  public static WebElement checkOut_Button_Element;
 
   @FindBy(xpath = "//input[@id='first-name']")
-  public static WebElement firstNameInputWebElement;
+  public static WebElement firstName_Input_Element;
 
   @FindBy(xpath = "//input[@id='last-name']")
-  public static WebElement lastNameInputWebElement;
+  public static WebElement lastName_Input_Element;
 
   @FindBy(xpath = "//input[@id='postal-code']")
-  public static WebElement zipCodeInputWebElement;
+  public static WebElement zipCode_Input_Element;
 
   @FindBy(xpath = "//input[@type='submit']")
-  public static WebElement continueButtonWebElement;
+  public static WebElement continue_Button_Element;
 
   @FindBy(
       xpath =

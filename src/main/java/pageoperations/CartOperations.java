@@ -20,22 +20,22 @@ public class CartOperations {
     PageFactory.initElements(driver, Cart.class);
     ScrollHelper.scroll(0, -100);
     ((JavascriptExecutor) driver)
-        .executeScript("arguments[0].scrollIntoView(true);", cartButtonWebElement);
-    cartButtonWebElement.click();
+        .executeScript("arguments[0].scrollIntoView(true);", cart_Button_Element);
+    cart_Button_Element.click();
     Assert.assertEquals(CheckoutConstants.CART_URL, CheckoutConstants.EXPECTED_CART_URL);
   }
 
   public static void clickCheckout() {
     PageFactory.initElements(driver, Cart.class);
-    checkOutButtonWebElement.click();
+    checkOut_Button_Element.click();
   }
 
   public static void enterUserInformation(String firstName, String lastName, String zipCode) {
     PageFactory.initElements(driver, Cart.class);
-    firstNameInputWebElement.sendKeys(firstName);
-    lastNameInputWebElement.sendKeys(lastName);
-    zipCodeInputWebElement.sendKeys(zipCode);
-    continueButtonWebElement.click();
+    firstName_Input_Element.sendKeys(firstName);
+    lastName_Input_Element.sendKeys(lastName);
+    zipCode_Input_Element.sendKeys(zipCode);
+    continue_Button_Element.click();
   }
 
   public static void verifyAddedItems(String[] itemsToAdd) {

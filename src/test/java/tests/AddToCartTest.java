@@ -14,7 +14,7 @@ public class AddToCartTest {
 
   @BeforeClass(groups = {"sanity", "regression"})
   public static void BrowserLaunch() {
-    BrowserSetup.navigateToURL(SetupConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.URL);
   }
 
 
@@ -31,6 +31,6 @@ public class AddToCartTest {
 
   @AfterClass
   public static void testCompletion() {
-    BrowserSetup.navigateToURL(SetupConstants.url);
+    BrowserSetup.navigateToURL(SetupConstants.URL);
   }
 }
