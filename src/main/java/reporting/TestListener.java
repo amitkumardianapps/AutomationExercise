@@ -24,26 +24,26 @@ public class TestListener implements ITestListener {
 
   public void onFinish(ITestContext context) {
     System.out.println(("*** Test Suite " + context.getName() + " ending ***"));
-    ExtentTestManagers.endTest();
-    ExtentManagers.getInstance().flush();
+    ExtentTestManager.endTest();
+    ExtentManager.getInstance().flush();
   }
 
   public void onTestStart(ITestResult result) {
     System.out.println(("*** Running test method " + result.getMethod().getMethodName() + "..."));
-    ExtentTestManagers.startTest(result.getMethod().getMethodName());
+    ExtentTestManager.startTest(result.getMethod().getMethodName());
   }
 
   public void onTestSuccess(ITestResult result) {
     System.out.println(
         "*** Executed " + result.getMethod().getMethodName() + " test successfully...");
-    ExtentTestManagers.getTest().log(Status.PASS, "Test passed");
+    ExtentTestManager.getTest().log(Status.PASS, "Test passed");
   }
 
   public void onTestFailure(ITestResult result) {
     System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
 
     if (result.getStatus() == ITestResult.FAILURE) {
-      ExtentTest test = ExtentTestManagers.getTest();
+      ExtentTest test = ExtentTestManager.getTest();
       test.log(Status.FAIL, "Test Failed");
 
       TakesScreenshot ts = (TakesScreenshot) driver;
@@ -63,7 +63,7 @@ public class TestListener implements ITestListener {
 
   public void onTestSkipped(ITestResult result) {
     System.out.println("*** Test " + result.getMethod().getMethodName() + " skipped...");
-    ExtentTestManagers.getTest().log(Status.SKIP, "Test Skipped");
+    ExtentTestManager.getTest().log(Status.SKIP, "Test Skipped");
   }
 
   public void onTestFailedButWithinSuccessPercentage(ITestResult result) {

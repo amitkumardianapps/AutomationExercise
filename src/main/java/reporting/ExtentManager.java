@@ -8,9 +8,9 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import java.io.File;
 
-import static reporting.ExtentTestManagers.test;
+import static reporting.ExtentTestManager.test;
 
-public class ExtentManagers {
+public class ExtentManager {
   private static ExtentReports extent;
   private static final String reportFileName = "Test-Automaton-Report" + ".html";
   private static final String fileSeparator = System.getProperty("file.separator");

@@ -22,7 +22,7 @@ public class CartOperations {
     ((JavascriptExecutor) driver)
         .executeScript("arguments[0].scrollIntoView(true);", cartButtonWebElement);
     cartButtonWebElement.click();
-    Assert.assertEquals(CheckoutConstants.actualCartUrl, CheckoutConstants.expectedCartUrl);
+    Assert.assertEquals(CheckoutConstants.CART_URL, CheckoutConstants.EXPECTED_CART_URL);
   }
 
   public static void clickCheckout() {

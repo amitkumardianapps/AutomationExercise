@@ -7,7 +7,7 @@ public class CartData {
   @DataProvider(name = "CartData")
   public Object[][] cartData() {
     return new Object[][] {
-      {"Sauce Labs Backpack"},
+      {"standard_user", "secret_sauce","Sauce Labs Backpack","Amit", "Kumar", "10001"},
     };
   }
 }
