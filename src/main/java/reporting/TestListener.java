@@ -50,7 +50,7 @@ public class TestListener implements ITestListener {
       File screenshot = ts.getScreenshotAs(OutputType.FILE);
 
       String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-      String screenshotPath = "screenshots/screenshot_" + timestamp + ".png"; // Relative path
+      String screenshotPath = System.getProperty("user.dir") + "/screenshots/screenshot_" + timestamp + ".png"; // Absolute path
 
       try {
         FileUtils.copyFile(screenshot, new File(screenshotPath));

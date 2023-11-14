@@ -2,6 +2,7 @@ package tests;
 
 import constants.SetupConstants;
 import dataprovider.CartData;
+import dataprovider.CartTestData;
 import helpers.BrowserSetup;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -22,11 +23,11 @@ public class AddToCartTest {
       dataProviderClass = CartData.class,
       priority = 2,
       groups = {"sanity"})
-  public static void addItemToCart(String username, String password,String itemToAdd, String firstName, String lastName, String zipCode) {
+  public static void addItemToCart(CartTestData testData) {
     LoginOperations loginOperations=new LoginOperations();
     ProductsOperations productsOperations=new ProductsOperations();
-    LoginOperations.login(username, password);
-    ProductsOperations.addToCart(new String[] {itemToAdd});
+    LoginOperations.login(testData.getUsername(), testData.getPassword());
+    ProductsOperations.addToCart(new String[] {testData.getItemToAdd()});
   }
 
   @AfterClass
