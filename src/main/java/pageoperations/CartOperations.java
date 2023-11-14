@@ -26,7 +26,8 @@ public class CartOperations {
         .executeScript("arguments[0].scrollIntoView(true);", cart_Button_Element);
     cart_Button_Element.click();
     ExtentManager.log("Clicked the Cart Button");
-    Assert.assertEquals(CheckoutConstants.CART_URL, CheckoutConstants.EXPECTED_CART_URL);
+    String cart_url=driver.getCurrentUrl();
+    Assert.assertEquals(cart_url, CheckoutConstants.EXPECTED_CART_URL);
     ExtentManager.log("Verified redirection to cart page");
   }
 
