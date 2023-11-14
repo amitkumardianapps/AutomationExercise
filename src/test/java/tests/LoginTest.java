@@ -3,15 +3,13 @@ package tests;
 import constants.SetupConstants;
 import dataprovider.LoginData;
 import helpers.BrowserSetup;
-import org.openqa.selenium.support.PageFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageobject.Login;
 import pageoperations.LoginOperations;
 
-import static helpers.BrowserSetup.driver;
-
+@Slf4j
 public class LoginTest {
 
   @BeforeTest(groups = {"sanity", "regression"})
@@ -22,7 +20,7 @@ public class LoginTest {
 
   @Test(dataProvider = "LoginCredentials", dataProviderClass = LoginData.class, groups = "sanity")
   public static void loginSuccess(String username, String password) {
-    PageFactory.initElements(driver, Login.class);
+    LoginOperations loginOperations=new LoginOperations();
     LoginOperations.login(username, password);
   }
 
@@ -32,7 +30,7 @@ public class LoginTest {
       groups = "sanity",
       priority = 2)
   public static void failedLogin(String username, String password) {
-    PageFactory.initElements(driver, Login.class);
+    LoginOperations loginOperations=new LoginOperations();
     LoginOperations.login(username, password);
   }
 

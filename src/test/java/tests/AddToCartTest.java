@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageoperations.LoginOperations;
 import pageoperations.ProductsOperations;
-import reporting.ExtentManager;
 
 public class AddToCartTest {
 
@@ -24,9 +23,10 @@ public class AddToCartTest {
       priority = 2,
       groups = {"sanity"})
   public static void addItemToCart(String username, String password,String itemToAdd, String firstName, String lastName, String zipCode) {
+    LoginOperations loginOperations=new LoginOperations();
+    ProductsOperations productsOperations=new ProductsOperations();
     LoginOperations.login(username, password);
     ProductsOperations.addToCart(new String[] {itemToAdd});
-    ExtentManager.log("Added " + itemToAdd + " to the cart");
   }
 
   @AfterClass
