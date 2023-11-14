@@ -1,5 +1,7 @@
 package helpers;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -28,8 +30,10 @@ public class BrowserSetup {
   }
 
   public static void navigateToURL(String url) {
-    getDriverInstance().get(url);
     getDriverInstance().manage().deleteAllCookies();
+    getDriverInstance().get("chrome://settings/clearBrowserData");
+    getDriverInstance().findElement(By.xpath("//settings-ui")).sendKeys(Keys.ENTER);
+    getDriverInstance().get(url);
     getDriverInstance().manage().window().maximize();
   }
 }
