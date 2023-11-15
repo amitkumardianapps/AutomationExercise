@@ -1,0 +1,56 @@
+Pet Meadow Automation
+
+Latest Feedbacks:
+- [ ] Multiple browsers should not open
+- [ ] Fix screenshot in report
+- [ ] After class > Remove and use base class
+- [x] extract url at runtime
+- [x] POJO> Implementation
+- [x] Remove logging from test methods and add to operations in helper methods
+- [x] Optimise init elements > use in class constructor
+- [x] Do not use webelement for naming the elements
+- [x] PUBLIC STATIC FINAL variables should be in capital
+- [x] Add base class for driver setup and import there
+- [x] Rename project constants
+- [x] Tests should be consolidated
+- [x] Use same data provider for login and product
+
+Discussion:
+1. If I use the same data provider for end to end checkout and add to cart it forces me to define the extra 3 parameters that I use in the end to end test but do not require in addtoCart. Should we use a separate data provider or just define all the parameters and use only the ones required.
+2. Used the testng base class but the tests only run individually not through the base class
+
+
+
+Learning :
+- [ ] Diff b/w plugin and dependency
+- [ ] Maven goals-mvn clean compile install
+- [ ] Exception handling
+- [ ] Desired Capabilities
+- [ ] POJO, DTO
+- [ ] Builder Pattern
+- [ ] Getter > Lombok
+- [ ] Setter> Lombok
+- [ ] exception handling
+- [ ] Excel and database for dataprovider
+
+
+
+
+
+Feedbacks completed:
+- [x] Groups added
+- [x] Assertions clubbed with actions
+- [x] Method names updated
+- [x] Deleted org.activity.task
+- [x] .idea added in gitignore
+- [x] Updated browser initialisation to just initialise the browser once
+- [x] Updated package for the reports
+- [x] Testng.xml renamed
+- [x] Updated branch naming
+- [x] Removed hard coded values
+- [x] Add the extent reports and test listener to the extentreports package
+- [x] Rename page to page object
+- [x] Hardcoded products
+
+
+
