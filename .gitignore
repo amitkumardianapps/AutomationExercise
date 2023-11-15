@@ -30,6 +30,10 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+/.idea
+.idea/workspace.xml
+screenshots
+TestReport
 
 ### VS Code ###
 .vscode/
